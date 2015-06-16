@@ -152,7 +152,7 @@ class barclaysefinance
         }
         else
         {
-            throw new exception('<strong>Soap is not installed on this server</strong>');
+            throw new \exception('<strong>Soap is not installed on this server</strong>');
         }
     }
 
@@ -223,7 +223,7 @@ class barclaysefinance
         }
         catch(Exception $e)
         {
-            throw new exception('<strong>Unable to create soap client ('.$e->getMessage().')</strong>');
+            throw new \exception('<strong>Unable to create soap client ('.$e->getMessage().')</strong>');
         }
 
         $this->debug($this->soap_client, 'Soap Client Object');
@@ -331,7 +331,7 @@ class barclaysefinance
 
                 if($throw == true)
                 {
-                    throw new exception($message, $code);
+                    throw new \exception($message, $code);
                 }
             }
             else
@@ -341,7 +341,7 @@ class barclaysefinance
 
                 if(!array_key_exists((int)$error_code, $this->catchable_errors))
                 {
-                    throw new exception('<strong>'.$error_message.' (Code: '.(int)$error_code.')</strong>', (int)$error_code);
+                    throw new \exception('<strong>'.$error_message.' (Code: '.(int)$error_code.')</strong>', (int)$error_code);
                 }
                 else
                 {

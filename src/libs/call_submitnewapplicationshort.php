@@ -57,15 +57,9 @@ class bef_submitNewApplicationShort extends barclaysefinance
 
         $this->build_proposal = array
         (
-            'ProposalTypeCode' => '',
-            'InterestRateType' => '',
-            'InterestRate'     => '',
-            'Term'             => '',
-            'DeferralPeriod'   => '',
+            
             'ClientReference'  => '',
-            'CashPrice'        => '',
-            'Deposit'          => '',
-            'ThirdPartyCharge' => ''
+            'CashPrice'        => ''
         );
 
         $this->build_customer = array
