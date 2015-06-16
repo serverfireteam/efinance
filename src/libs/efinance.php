@@ -102,9 +102,9 @@ class barclaysefinance
      */
     public function load_configs()
     {
-        require_once('configs.php');
 
-        $this->configuration = $barclays_efinance_config;
+
+        $this->configuration = \Config('efinance');
 
         $this->configuration_current = $this->configuration[$this->configuration['ENVIRONMENT']];
     }
@@ -187,7 +187,7 @@ class barclaysefinance
             {
                 if(substr($debug, 0, 1) == '<')
                 {
-                    $dom = new DOMDocument;
+                    $dom = new \DOMDocument;
                     $dom->preserveWhiteSpace = FALSE;
                     $dom->loadXML($debug);
                     $dom->formatOutput = TRUE;
@@ -214,7 +214,7 @@ class barclaysefinance
     {
         try
         {   
-            $this->soap_client = new SoapClient($this->configuration_current['WSDL_PATH'], array('trace' => true, 'exceptions' => true));
+            $this->soap_client = new \SoapClient( storage_path() . '/app/'. $this->configuration_current['WSDL_PATH'], array('trace' => true, 'exceptions' => true));
 
             if(!empty($this->configuration_current['WSDL_LOCATION']))
             {
