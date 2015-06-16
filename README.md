@@ -39,7 +39,42 @@
 
 ## Simple Code 
 
-1. submit new applications
+1. submit new application short
+    ```php
+    Route::get('/short', function(){
+
+        $bef = new Serverfireteam\Efinance\bef_submitNewApplicationShort();
+
+        $bef->build_proposal('ClientReference', 'Ch1');
+        $bef->build_proposal('CashPrice', 1000);
+
+
+        $bef->build_customer('Title', 'Mr');
+        $bef->build_customer('Forename', 'Test');
+        $bef->build_customer('Surname', 'Person');
+        $bef->build_customer('EmailAddress', 'test@test.com');
+        $bef->build_customer('EmailAddress', 'test@test.com');
+         
+
+        $bef->build_address('HouseNumber', '1');
+        $bef->build_address('Street', 'A Street');
+        $bef->build_address('District', 'A Locality');
+        $bef->build_address('Town', 'A Town');
+        $bef->build_address('County', 'A County');
+        $bef->build_address('Postcode', 'A1 1AA');
+
+        $bef->build_goods('Fp1', 'Security items', 1);
+
+        $bef->call();
+
+        echo 'Token:<br />';
+        echo $bef->get_token();
+
+        echo '<br /><br />Proposal ID:<br />';
+        echo $bef->get_proposal_id();
+    });
+    ```
+2. submit new applications
     ```php
         Route::get('/', function(){
 
@@ -80,7 +115,7 @@
             echo $bef->get_proposal_id();
         });
     ```
-2. Cancel agreement
+3. Cancel agreement
 
 
     ```php
@@ -100,7 +135,7 @@
 
         $bef->call();
     ```
-3. submit notification batch
+4. submit notification batch
 
     ```php
         $bef = new Serverfireteam\Efinance\bef_submitNotificationBatch();
@@ -129,7 +164,7 @@
             echo '<pre>'; print_r($rejections); echo '</pre>';
         }
     ```
-4. notification batch enquiry
+5. notification batch enquiry
 
     ```php
         $bef = new Serverfireteam\Efinance\bef_notificationBatchEnquiry();
@@ -139,7 +174,7 @@
 
         $bef->call();
     ```
-5. soap 
+6. soap 
     ```php
         $bef = new Serverfireteam\Efinance\bef_proposalEnquiry();
 
