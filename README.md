@@ -2,16 +2,18 @@
 
 
 
-##Installations for laravel 5
+##Installations for laravel 5.1
 
-1. First you need to create a laravel 5 project
+1. First you need to create a laravel 5.1 project
 
 2. Add our package to require section of composer :
 
     ```json
     {
         "require": {
+            ...
             "serverfireteam/efinance": "dev-master"
+
         },
     }
     ```
@@ -22,7 +24,7 @@
 
     ```php
     'providers' => array(
-        'Serverfireteam\Efinance\EfinanceServiceProvider'
+        Serverfireteam\Efinance\EfinanceServiceProvider::class
     )
     ```
 
