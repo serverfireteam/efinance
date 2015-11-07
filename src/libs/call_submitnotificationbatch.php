@@ -192,10 +192,7 @@ class bef_submitNotificationBatch extends barclaysefinance
         {
             $rejection_data[] = array
             (
-                'ProposalID'       => $rejection->ProposalID,
-                'AgreementNumber'  => $rejection->AgreementNumber,
-                'ClientReference'  => $rejection->ClientReference,
-                'Reason'           => $rejection->Reason
+                'Reason'           => $rejection
             );
         }
 
